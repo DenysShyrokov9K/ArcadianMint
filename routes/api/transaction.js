@@ -25,17 +25,17 @@ router.post("/", (req,res) => {
 // @access  Public
 router.post("/getTransactions",async (req,res) => {
     try{
-        const {userAddress,sort ,game} = req.body;
+        const {userAddress ,type ,sort ,game} = req.body;
         console.log(userAddress);
         console.log(sort);
         let users; 
         if(sort === "latest"){
             if(game === 1)
-                users = await Transaction.find({userAddress: userAddress,game:"Crypto 8Ball"}).sort({date: -1});
+                users = await Transaction.find({userAddress: userAddress,type: type,game:"Crypto 8Ball"}).sort({date: -1});
         } else 
         {
             if(game === 1)
-                users = await Transaction.find({userAddress: userAddress,game:"Crypto 8Ball"}).sort({date: 1});
+                users = await Transaction.find({userAddress: userAddress,type: type,game:"Crypto 8Ball"}).sort({date: 1});
         }
         res.json(users);
     }catch(err) {

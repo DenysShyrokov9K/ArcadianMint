@@ -1,9 +1,10 @@
 const Transaction = require('../models/Transaction');
 
-const SaveTransaction = ({name,userAddress,game,transactionId,amount}) => {
+const SaveTransaction = ({name,type,userAddress,game,transactionId,amount}) => {
     try{
         let transaction = new Transaction({   
-            name: name,     
+            name: name,  
+            type: type,   
             userAddress: userAddress,
             game: game,
             transactionId:transactionId,
