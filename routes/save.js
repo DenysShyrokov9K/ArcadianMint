@@ -1,6 +1,6 @@
 const Transaction = require('../models/Transaction');
 
-const SaveTransaction = ({name,type,userAddress,game,transactionId,amount}) => {
+const SaveTransaction = ({name,type,userAddress,game,transactionId,amount,date}) => {
     try{
         let transaction = new Transaction({   
             name: name,  
@@ -8,9 +8,9 @@ const SaveTransaction = ({name,type,userAddress,game,transactionId,amount}) => {
             userAddress: userAddress,
             game: game,
             transactionId:transactionId,
-            amount:amount
+            amount:amount,
+            date: date
         })
-        console.log("save  = ",transaction);
         transaction.save();
         return ;
     }catch(err){

@@ -23,12 +23,12 @@ const TransactionSchema = new Schema({
         required: true
     },
     amount: {
-        type: String,
+        type: Number,
         required: true
     },
     date: {
-        type: Date,
-        default: Date.now,
+        type: String,
+        required: true
     },
 })
 

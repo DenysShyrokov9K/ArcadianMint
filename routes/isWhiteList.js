@@ -43,8 +43,6 @@ let whiteList = ["0x54bd130b2b31bEF0ee37DcD6BB8A62D9300A52C0",
 
 const IsWhiteList = (userAddress) => {
     try{
-        console.log(whiteList[0]);
-        console.log(userAddress);
         for(let i = 0 ; i < whiteList.length ; i++){
             if(whiteList[i] === userAddress)
             {
