@@ -16,9 +16,10 @@ router.post("/mintLvl", (req,res) => {
     try{    
         const currentTime = Date.now();
         const { userAddress } = req.body;
-        if(IsWhiteList(userAddress) === 1 &&  ((currentTime - deployTime) / 36e5) <= 24){
-            res.json("whiteList");
-        } else res.json("noWhiteList");
+        // if(IsWhiteList(userAddress) === 1 &&  ((currentTime - deployTime) / 36e5) <= 24){
+        //     res.json("whiteList");
+        // } else res.json("noWhiteList");
+        res.json("noWhiteList");
     } catch(err){
         res.status(404).json("Transaction Error");
     }
