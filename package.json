@@ -18,6 +18,8 @@
   },
   "homepage": "https://github.com/GudingStar/NFT-frontend#readme",
   "dependencies": {
+    "@moralisweb3/common-evm-utils": "^2.10.3",
+    "abi-decoder": "^2.4.0",
     "axios": "^0.27.2",
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.20.0",
@@ -32,6 +34,7 @@
     "jsonwebtoken": "^8.5.1",
     "moment": "^2.29.4",
     "mongoose": "^6.6.0",
+    "moralis": "^2.10.3",
     "node-fetch": "^2.0.0",
     "passport": "^0.6.0",
     "passport-jwt": "^4.0.0",
@@ -39,7 +42,9 @@
     "playfab-sdk": "^2.112.221010",
     "request": "^2.88.2",
     "speakeasy": "^2.0.0",
-    "validator": "^13.7.0"
+    "validator": "^13.7.0",
+    "web3": "^1.8.1",
+    "web3-eth-abi": "^1.8.1"
   },
   "devDependencies": {
     "nodemon": "^2.0.20"

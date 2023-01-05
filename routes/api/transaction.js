@@ -3,6 +3,10 @@ const router = express.Router();
 const Transaction = require("../../models/Transaction");
 const SaveTransaction = require("../save");
 const fetch = require("node-fetch");
+const Moralis = require("moralis").default;
+const { EvmChain } = require("@moralisweb3/common-evm-utils");
+const AbiCoder = require("web3-eth-abi");
+
 // @route   get api/users/test
 // @desc    test User
 // @access  Public
@@ -35,74 +39,205 @@ router.post("/", (req, res) => {
   }
 });
 
+router.post("/getTransactions", async (req, res) => {
+  const { userAddress, type, game } = req.body;
+  let _mintRandomType = "0xf031bc11";
+  let _mintSpecifyType = "0xfa490592";
+  let _upgradeType = "0xe0072ada";
+  let mintResults = [];
+  let upgradeResults = [];
+  let mintTransactionHashs = [];
+  let upgradeTransactionHashs = [];
+  let mintTypes = [];
+  if (game === 1) {
+    const address = "0x10c43C1947d08e6fE69cAaC1730F8863a4Ddaa69";
+
+    const chain = EvmChain.FUJI;
+    const _response = await Moralis.EvmApi.transaction.getWalletTransactions({
+      address,
+      chain,
+    });
+
+    const response = _response.toJSON().result;
+    // res.json(response);
+
+
+
+      for (let i = 0; i < response.length; i++) {
+        if (response[i].input === _mintRandomType) {
+          mintTypes.push(_mintRandomType)
+          mintTransactionHashs.push(response[i].hash);
+        } else if(String(response[i].input).slice(0,10) === _mintSpecifyType){
+          mintTypes.push(_mintSpecifyType)
+          mintTransactionHashs.push(response[i].hash);
+        }
+      }
+
+      for (let j = 0; j < mintTransactionHashs.length; j++) {
+        const transactionHash = mintTransactionHashs[j];
+        const responseLogs = await Moralis.EvmApi.transaction.getTransaction({
+          transactionHash,
+          chain,
+        });
+        if(mintTypes[j] === _mintRandomType)
+        {
+          if (
+            responseLogs.jsonResponse.logs[2] !== undefined &&
+            String(
+              AbiCoder.decodeParameters(
+                ["address"],
+                responseLogs.jsonResponse.logs[2].topic1
+              )[0]
+            ) === String(userAddress)
+          ) {
+            const date = responseLogs.jsonResponse.logs[2].block_timestamp;
+            const tokenId = AbiCoder.decodeParameters(
+              ["uint256", "uint256", "uint256", "uint256"],
+              responseLogs.jsonResponse.logs[2].data
+            )[0];
+            const price = AbiCoder.decodeParameters(
+              ["uint256", "uint256", "uint256", "uint256"],
+              responseLogs.jsonResponse.logs[2].data
+            )[3];
+            const transactionId = transactionHash;
+            const result = { date, tokenId, price, transactionId };
+            mintResults.push(result);
+          }
+        } else if(mintTypes[j] === _mintSpecifyType){
+          if (
+            responseLogs.jsonResponse.logs[1] !== undefined &&
+            String(
+              AbiCoder.decodeParameters(
+                ["address"],
+                responseLogs.jsonResponse.logs[1].topic1
+              )[0]
+            ) === String(userAddress)
+          ) {
+            const date = responseLogs.jsonResponse.logs[1].block_timestamp;
+            const tokenId = AbiCoder.decodeParameters(
+              ["uint256", "uint256", "uint256", "uint256"],
+              responseLogs.jsonResponse.logs[1].data
+            )[0];
+            const price = AbiCoder.decodeParameters(
+              ["uint256", "uint256", "uint256", "uint256"],
+              responseLogs.jsonResponse.logs[1].data
+            )[3];
+            const transactionId = transactionHash;
+            const result = { date, tokenId, price, transactionId };
+            mintResults.push(result);
+          }
+        }
+      }
+
+      for (let i = 0; i < response.length; i++) {
+        if (String(response[i].input).slice(0,10) === _upgradeType) {
+          upgradeTransactionHashs.push(response[i].hash);
+        }
+      }
+
+      for (let j = 0; j < upgradeTransactionHashs.length; j++) {
+        const transactionHash = upgradeTransactionHashs[j];
+        const responseLogs = await Moralis.EvmApi.transaction.getTransaction({
+          transactionHash,
+          chain,
+        });
+        if (
+          responseLogs.jsonResponse.logs[0] !== undefined &&
+          String(
+            AbiCoder.decodeParameters(
+              ["address"],
+              responseLogs.jsonResponse.logs[0].topic1
+            )[0]
+          ) === String(userAddress)
+        ) {
+          const date = responseLogs.jsonResponse.logs[0].block_timestamp;
+          const tokenId = AbiCoder.decodeParameters(
+            ["uint256", "uint256", "uint256", "uint256"],
+            responseLogs.jsonResponse.logs[0].data
+          )[0];
+          const price = AbiCoder.decodeParameters(
+            ["uint256", "uint256", "uint256", "uint256"],
+            responseLogs.jsonResponse.logs[0].data
+          )[3];
+          const transactionId = transactionHash;
+          const result = { date, tokenId, price, transactionId };
+          upgradeResults.push(result);
+        }
+      }
+      res.json({mintResults,upgradeResults});
+  } else {
+    res.json({});
+  }
+});
+
 // @route   POST api/transaction/findResults
 // @desc    Register User
 // @access  Public
-router.post("/getTransactions", async (req, res) => {
-  try {
-    const { userAddress, type, sort, game } = req.body;
-    let users = [];
-    if (sort === "priceMinus") {
-      if (game === 1) {
-        users = await Transaction.find({
-          userAddress: userAddress,
-          type: type,
-          game: "Crypto 8Ball",
-        }).sort({ amount: -1 });
-      }
-    }
-    if (sort === "pricePlus") {
-      if (game === 1) {
-        users = await Transaction.find({
-          userAddress: userAddress,
-          type: type,
-          game: "Crypto 8Ball",
-        }).sort({ amount: 1 });
-      }
-    }
+// router.post("/getTransactions", async (req, res) => {
+//   try {
+//     const { userAddress, type, sort, game } = req.body;
+//     let users = [];
+//     if (sort === "priceMinus") {
+//       if (game === 1) {
+//         users = await Transaction.find({
+//           userAddress: userAddress,
+//           type: type,
+//           game: "Crypto 8Ball",
+//         }).sort({ amount: -1 });
+//       }
+//     }
+//     if (sort === "pricePlus") {
+//       if (game === 1) {
+//         users = await Transaction.find({
+//           userAddress: userAddress,
+//           type: type,
+//           game: "Crypto 8Ball",
+//         }).sort({ amount: 1 });
+//       }
+//     }
 
-    if (sort === "latest") {
-        if (game === 1) {
-            users = await Transaction.find({
-              userAddress: userAddress,
-              type: type,
-              game: "Crypto 8Ball",
-            });
-          }
-        for (let i = 0; i < users.length - 1; i++) {
-          for (let j = i + 1; j < users.length; j++) {
-            if ((new Date(users[i].date)) < (new Date(users[j].date))) {
-              const temp = users[i];
-              users[i] = users[j];
-              users[j] = temp;
-            }
-          }
-        }
-    } 
-    if(sort === "oldest")
-    {
-        if (game === 1) {
-            users = await Transaction.find({
-              userAddress: userAddress,
-              type: type,
-              game: "Crypto 8Ball",
-            });
-          }
-        for (let i = 0; i < users.length ; i++) {
-          for (let j = i + 1; j < users.length; j++) {
-            if ((new Date(users[i].date)) > (new Date(users[j].date))) {
-                const temp = users[i];
-                users[i] = users[j];
-                users[j] = temp;
-              }
-          }
-        }
-    }
-    res.json(users);
-  } catch (err) {
-    res.status(404).json("find error");
-  }
-});
+//     if (sort === "latest") {
+//         if (game === 1) {
+//             users = await Transaction.find({
+//               userAddress: userAddress,
+//               type: type,
+//               game: "Crypto 8Ball",
+//             });
+//           }
+//         for (let i = 0; i < users.length - 1; i++) {
+//           for (let j = i + 1; j < users.length; j++) {
+//             if ((new Date(users[i].date)) < (new Date(users[j].date))) {
+//               const temp = users[i];
+//               users[i] = users[j];
+//               users[j] = temp;
+//             }
+//           }
+//         }
+//     }
+//     if(sort === "oldest")
+//     {
+//         if (game === 1) {
+//             users = await Transaction.find({
+//               userAddress: userAddress,
+//               type: type,
+//               game: "Crypto 8Ball",
+//             });
+//           }
+//         for (let i = 0; i < users.length ; i++) {
+//           for (let j = i + 1; j < users.length; j++) {
+//             if ((new Date(users[i].date)) > (new Date(users[j].date))) {
+//                 const temp = users[i];
+//                 users[i] = users[j];
+//                 users[j] = temp;
+//               }
+//           }
+//         }
+//     }
+//     res.json(users);
+//   } catch (err) {
+//     res.status(404).json("find error");
+//   }
+// });
 
 //get TotalVolume
 router.get("/getTotalVolume", (req, res) => {
@@ -150,8 +285,6 @@ router.get("/getCurrentAvaxPrice", async (req, res) => {
       .then((res) => res.text())
       .then((text) => (response = JSON.parse(text)));
     res.json(response.USD);
-
-     
   } catch (err) {
     console.log(err);
   }
