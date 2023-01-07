@@ -1,7 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const Transaction = require("../../models/Transaction");
-const SaveTransaction = require("../save");
+
 const fetch = require("node-fetch");
 const Moralis = require("moralis").default;
 const { EvmChain } = require("@moralisweb3/common-evm-utils");
@@ -169,75 +168,6 @@ router.post("/getTransactions", async (req, res) => {
     res.json({});
   }
 });
-
-// @route   POST api/transaction/findResults
-// @desc    Register User
-// @access  Public
-// router.post("/getTransactions", async (req, res) => {
-//   try {
-//     const { userAddress, type, sort, game } = req.body;
-//     let users = [];
-//     if (sort === "priceMinus") {
-//       if (game === 1) {
-//         users = await Transaction.find({
-//           userAddress: userAddress,
-//           type: type,
-//           game: "Crypto 8Ball",
-//         }).sort({ amount: -1 });
-//       }
-//     }
-//     if (sort === "pricePlus") {
-//       if (game === 1) {
-//         users = await Transaction.find({
-//           userAddress: userAddress,
-//           type: type,
-//           game: "Crypto 8Ball",
-//         }).sort({ amount: 1 });
-//       }
-//     }
-
-//     if (sort === "latest") {
-//         if (game === 1) {
-//             users = await Transaction.find({
-//               userAddress: userAddress,
-//               type: type,
-//               game: "Crypto 8Ball",
-//             });
-//           }
-//         for (let i = 0; i < users.length - 1; i++) {
-//           for (let j = i + 1; j < users.length; j++) {
-//             if ((new Date(users[i].date)) < (new Date(users[j].date))) {
-//               const temp = users[i];
-//               users[i] = users[j];
-//               users[j] = temp;
-//             }
-//           }
-//         }
-//     }
-//     if(sort === "oldest")
-//     {
-//         if (game === 1) {
-//             users = await Transaction.find({
-//               userAddress: userAddress,
-//               type: type,
-//               game: "Crypto 8Ball",
-//             });
-//           }
-//         for (let i = 0; i < users.length ; i++) {
-//           for (let j = i + 1; j < users.length; j++) {
-//             if ((new Date(users[i].date)) > (new Date(users[j].date))) {
-//                 const temp = users[i];
-//                 users[i] = users[j];
-//                 users[j] = temp;
-//               }
-//           }
-//         }
-//     }
-//     res.json(users);
-//   } catch (err) {
-//     res.status(404).json("find error");
-//   }
-// });
 
 //get TotalVolume
 router.get("/getTotalVolume", (req, res) => {

@@ -14,7 +14,6 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 // Define Routes
 app.use("/api/transaction", require("./routes/api/transaction"));
-app.use("/api/mint", require("./routes/api/mint"));
 
 if (process.env.NODE_ENV === "production") {
     // Set Static Folder
