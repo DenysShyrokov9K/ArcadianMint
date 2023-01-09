@@ -6,7 +6,7 @@ const Moralis = require("moralis").default;
 const { Contract, providers, utils } = require("ethers");
 const {mintAbi,cueAbi} = require("./contract/abi.json");
 const SaveTransaction = require('./routes/save');
-
+const SaveVolume = require('./routes/saveVolume');
 
 require("dotenv").config();
 // Connect to Database
@@ -38,13 +38,9 @@ const PORT = process.env.PORT || 5000;
 
 app.listen(PORT, async () => {
   console.log(`Server started on PORT ${PORT}`);
-  await Moralis.start({
-    apiKey: "AetCqI9YB4mfxA15Ttx9NJL1JU2XyvWiy5HOL0U8slf2wa1KNbICpnqF7PORhpJJ",
-    // ...and any other configuration
-  });
-  console.log("Moralis started");
 
   let Rarity = ["Common", "Uncommon", "Rare", "Epic", "Legendary"];
+
   const provider = new providers.WebSocketProvider(
     "wss://api.avax-test.network/ext/bc/C/ws",
     {
@@ -66,30 +62,20 @@ app.listen(PORT, async () => {
   )
 
   const mintListener = async (from, tokenId, collectionId, rarity, price, event) => {
-    console.log("From:", from);
-    console.log("Token ID:", tokenId.toNumber());
-    console.log("Collection ID:", collectionId.toNumber());
-    console.log("Rarity:", Rarity[rarity]);
-    console.log("Price:", utils.formatEther(price), "AVAX");
-    console.log("Event:", event);
     const tokenData = JSON.parse(
-      await cueContract.tokenURIJSON(Number(utils.formatEther(price)))
+      await cueContract.tokenURIJSON(tokenId)
     );
-    console.log(tokenData);
+
+    // SaveVolume({type:"mint",collectinId: collectionId.toNumber(),price:Number(utils.formatEther(price))})
     SaveTransaction({userAddress:from,nftName:tokenData.name,game:"8Ball",transferType:"mint",transactionID:event.transactionHash,amount: Number(utils.formatEther(price)) });
   };
 
   const upgradeListener = async (from, tokenId, collectionId, rarity, price, event) => {
-    console.log("From:", from);
-    console.log("Token ID:", tokenId.toNumber());
-    console.log("Collection ID:", collectionId.toNumber());
-    console.log("Rarity:", Rarity[rarity]);
-    console.log("Price:", utils.formatEther(price), "AVAX");
-    console.log("Event:", event);
     const tokenData = JSON.parse(
-      await cueContract.tokenURIJSON(Number(utils.formatEther(price)))
+      await cueContract.tokenURIJSON(tokenId)
     );
-    console.log(tokenData);
+
+    // SaveVolume({type:"upgrade",collectinId: collectionId.toNumber(),price:Number(utils.formatEther(price))})
     SaveTransaction({userAddress:from,nftName:tokenData.name,game:"8Ball",transferType:"upgrade",transactionID:event.transactionHash,amount: Number(utils.formatEther(price)) });
   };
   mintContract.on(mintContract.filters.CuePurchased(), mintListener);
