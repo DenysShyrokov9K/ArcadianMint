@@ -7,38 +7,12 @@ const { EvmChain } = require("@moralisweb3/common-evm-utils");
 const AbiCoder = require("web3-eth-abi");
 
 const Transaction = require('../../models/mintTransaction');
+const Volume = require('../../models/volume');
 
 // @route   get api/users/test
 // @desc    test User
 // @access  Public
 router.get("/test", (req, res) => res.json({ msg: "this is test" }));
-
-let totalVolume = 112;
-let mainMintedCount = 70;
-let sonicMintedCount = 15;
-let mtopMintedCount = 4;
-
-// @route   POST api/transaction
-// @desc    Register User
-// @access  Public
-router.post("/", (req, res) => {
-  try {
-    totalVolume += req.body.amount;
-    if (req.body.collectionId === 1) {
-      mainMintedCount++;
-    }
-    if (req.body.collectionId === 3) {
-      sonicMintedCount++;
-    }
-    if (req.body.collectionId === 4) {
-      mtopMintedCount++;
-    }
-    res.json("success");
-  } catch (err) {
-    res.status(404).json("Transaction Error");
-  }
-});
-
 
 router.post('/getTransactions',async(req,res) => {
   try{
@@ -65,38 +39,58 @@ router.post('/getTransactions',async(req,res) => {
   }
 })
 
-router.get("/getTotalVolume", (req, res) => {
+router.get("/getTotalVolume", async (req, res) => {
   try {
+    const volumes = await Volume.find();
+    let totalVolume = 0;
+    if(volumes.length > 0){
+      totalVolume = volumes[volumes.length-1].totalVolume;
+    } else totalVolume =0;
     res.json(totalVolume);
   } catch (err) {
-    res.json(totalVolume);
+    res.json(0);
   }
 });
 
 //get MainMintedCount
-router.get("/getMainMintedCount", (req, res) => {
+router.get("/getMainMintedCount", async(req, res) => {
   try {
+    const volumes = await Volume.find();
+    let mainMintedCount = 0;
+    if(volumes.length > 0){
+      mainMintedCount = volumes[volumes.length-1].mainCount;
+    } else mainMintedCount =0;
     res.json(mainMintedCount);
   } catch (err) {
-    res.json(mainMintedCount);
+    res.json(0);
   }
 });
 
 //get SonicMintedCount
-router.get("/getSonicMintedCount", (req, res) => {
+router.get("/getSonicMintedCount", async(req, res) => {
   try {
+    const volumes = await Volume.find();
+    let sonicMintedCount = 0;
+    if(volumes.length > 0){
+      sonicMintedCount = volumes[volumes.length-1].sonicCount;
+    } else sonicMintedCount =0;
     res.json(sonicMintedCount);
   } catch (err) {
-    res.json(sonicMintedCount);
+    res.json(0);
   }
 });
 
 //get MtopMintedCount
-router.get("/getMtopMintedCount", (req, res) => {
+router.get("/getMtopMintedCount", async(req, res) => {
   try {
+    const volumes = await Volume.find();
+    let mtopMintedCount = 0;
+    if(volumes.length > 0){
+      mtopMintedCount = volumes[volumes.length-1].mtopCount;
+    } else mtopMintedCount =0;
     res.json(mtopMintedCount);
   } catch (err) {
-    res.json(mtopMintedCount);
+    res.json(0);
   }
 });
 

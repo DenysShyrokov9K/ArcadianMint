@@ -65,8 +65,9 @@ app.listen(PORT, async () => {
     const tokenData = JSON.parse(
       await cueContract.tokenURIJSON(tokenId)
     );
+    console.log("collectionId === ",Number(collectionId));
 
-    // SaveVolume({type:"mint",collectinId: collectionId.toNumber(),price:Number(utils.formatEther(price))})
+    SaveVolume({type:"mint",collectionId: Number(collectionId),price:Number(utils.formatEther(price))})
     SaveTransaction({userAddress:from,nftName:tokenData.name,game:"8Ball",transferType:"mint",transactionID:event.transactionHash,amount: Number(utils.formatEther(price)) });
   };
 
@@ -75,7 +76,7 @@ app.listen(PORT, async () => {
       await cueContract.tokenURIJSON(tokenId)
     );
 
-    // SaveVolume({type:"upgrade",collectinId: collectionId.toNumber(),price:Number(utils.formatEther(price))})
+    SaveVolume({type:"upgrade",collectionId: Number(collectionId),price:Number(utils.formatEther(price))})
     SaveTransaction({userAddress:from,nftName:tokenData.name,game:"8Ball",transferType:"upgrade",transactionID:event.transactionHash,amount: Number(utils.formatEther(price)) });
   };
   mintContract.on(mintContract.filters.CuePurchased(), mintListener);
