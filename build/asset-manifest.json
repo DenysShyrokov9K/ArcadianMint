@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.430c0544.css",
-    "main.js": "/static/js/main.f4527204.js",
+    "main.css": "/static/css/main.95a82b8f.css",
+    "main.js": "/static/js/main.9db44649.js",
     "static/js/148.a91bcd60.chunk.js": "/static/js/148.a91bcd60.chunk.js",
     "static/js/888.49b4b7b0.chunk.js": "/static/js/888.49b4b7b0.chunk.js",
     "static/js/624.1f775abd.chunk.js": "/static/js/624.1f775abd.chunk.js",
@@ -52,8 +52,8 @@
     "static/media/poppins-latin-ext-400-normal.woff2": "/static/media/poppins-latin-ext-400-normal.4f38b4331448d2313adc.woff2",
     "static/media/space-grotesk-vietnamese-400-normal.woff2": "/static/media/space-grotesk-vietnamese-400-normal.799f8d2e84c3f8dd8ca1.woff2",
     "index.html": "/index.html",
-    "main.430c0544.css.map": "/static/css/main.430c0544.css.map",
-    "main.f4527204.js.map": "/static/js/main.f4527204.js.map",
+    "main.95a82b8f.css.map": "/static/css/main.95a82b8f.css.map",
+    "main.9db44649.js.map": "/static/js/main.9db44649.js.map",
     "148.a91bcd60.chunk.js.map": "/static/js/148.a91bcd60.chunk.js.map",
     "888.49b4b7b0.chunk.js.map": "/static/js/888.49b4b7b0.chunk.js.map",
     "624.1f775abd.chunk.js.map": "/static/js/624.1f775abd.chunk.js.map",
@@ -83,7 +83,7 @@
     "48.b460c914.chunk.js.map": "/static/js/48.b460c914.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.430c0544.css",
-    "static/js/main.f4527204.js"
+    "static/css/main.95a82b8f.css",
+    "static/js/main.9db44649.js"
   ]
 }
