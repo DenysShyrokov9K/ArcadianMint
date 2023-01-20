@@ -71,7 +71,7 @@ app.listen(PORT, async () => {
     console.log("Collection ID:", collectionId.toNumber());
     console.log("Rarity:", Rarity[rarity]);
     console.log("Price:", utils.formatEther(price), "AVAX");
-    console.log("Event:", event);
+    console.log("EventHash:", event.transactionHash);
 
     SaveVolume({type:"mint",collectionId: Number(collectionId),price:Number(utils.formatEther(price))})
     SaveTransaction({userAddress:from,nftName:tokenData.name,game:"8Ball",transferType:"mint",transactionID:event.transactionHash,amount: Number(utils.formatEther(price)) });
@@ -86,7 +86,7 @@ app.listen(PORT, async () => {
     console.log("Collection ID:", collectionId.toNumber());
     console.log("Rarity:", Rarity[rarity]);
     console.log("Price:", utils.formatEther(price), "AVAX");
-    console.log("Event:", event);
+    console.log("EventHash:", event.transactionHash);
 
     SaveVolume({type:"upgrade",collectionId: Number(collectionId),price:Number(utils.formatEther(price))})
     SaveTransaction({userAddress:from,nftName:tokenData.name,game:"8Ball",transferType:"upgrade",transactionID:event.transactionHash,amount: Number(utils.formatEther(price)) });
