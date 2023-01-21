@@ -1,12 +1,12 @@
 {
   "files": {
-    "main.css": "/static/css/main.8cd0c7e3.css",
-    "main.js": "/static/js/main.37c74ec9.js",
+    "main.css": "/static/css/main.7bb51afc.css",
+    "main.js": "/static/js/main.8677536d.js",
     "static/js/942.3f10588c.chunk.js": "/static/js/942.3f10588c.chunk.js",
     "static/js/563.918ae73a.chunk.js": "/static/js/563.918ae73a.chunk.js",
     "static/js/787.28cb0dcd.chunk.js": "/static/js/787.28cb0dcd.chunk.js",
-    "static/js/419.ffa7ee54.chunk.js": "/static/js/419.ffa7ee54.chunk.js",
-    "static/js/48.82f35c3f.chunk.js": "/static/js/48.82f35c3f.chunk.js",
+    "static/js/419.369e8839.chunk.js": "/static/js/419.369e8839.chunk.js",
+    "static/js/48.6c245599.chunk.js": "/static/js/48.6c245599.chunk.js",
     "static/media/poppins-all-400-normal.woff": "/static/media/poppins-all-400-normal.6fbfdac99c274b77fe96.woff",
     "static/media/poppins-devanagari-400-normal.woff2": "/static/media/poppins-devanagari-400-normal.64d5f06ee726edd58ca3.woff2",
     "static/media/space-grotesk-all-400-normal.woff": "/static/media/space-grotesk-all-400-normal.625410290983f0e0895a.woff",
@@ -27,15 +27,19 @@
     "static/media/poppins-latin-400-normal.woff2": "/static/media/poppins-latin-400-normal.405055dd680fa1dcdfa2.woff2",
     "static/media/poppins-latin-ext-400-normal.woff2": "/static/media/poppins-latin-ext-400-normal.4f38b4331448d2313adc.woff2",
     "static/media/space-grotesk-vietnamese-400-normal.woff2": "/static/media/space-grotesk-vietnamese-400-normal.799f8d2e84c3f8dd8ca1.woff2",
+    "static/media/notification.svg?s3g3t9": "/static/media/notification.5d0158671dd860c714c4.svg",
+    "static/media/notification.eot": "/static/media/notification.3657084dc0419605a91c.eot",
+    "static/media/notification.woff?s3g3t9": "/static/media/notification.c392cd33d9d9de730f9d.woff",
+    "static/media/notification.ttf?s3g3t9": "/static/media/notification.c5d9251ea82e42f75381.ttf",
     "index.html": "/index.html",
-    "main.8cd0c7e3.css.map": "/static/css/main.8cd0c7e3.css.map",
-    "main.37c74ec9.js.map": "/static/js/main.37c74ec9.js.map",
+    "main.7bb51afc.css.map": "/static/css/main.7bb51afc.css.map",
+    "main.8677536d.js.map": "/static/js/main.8677536d.js.map",
     "787.28cb0dcd.chunk.js.map": "/static/js/787.28cb0dcd.chunk.js.map",
-    "419.ffa7ee54.chunk.js.map": "/static/js/419.ffa7ee54.chunk.js.map",
-    "48.82f35c3f.chunk.js.map": "/static/js/48.82f35c3f.chunk.js.map"
+    "419.369e8839.chunk.js.map": "/static/js/419.369e8839.chunk.js.map",
+    "48.6c245599.chunk.js.map": "/static/js/48.6c245599.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.8cd0c7e3.css",
-    "static/js/main.37c74ec9.js"
+    "static/css/main.7bb51afc.css",
+    "static/js/main.8677536d.js"
   ]
 }
