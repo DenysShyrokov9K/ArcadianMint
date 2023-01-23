@@ -11,7 +11,6 @@ const SaveTransaction = ({userAddress,nftName,game,transferType,transactionID,am
             amount: amount
         })
         transaction.save();
-        return ;
     }catch(err){
         console.log(err);
     }    
