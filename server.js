@@ -20,17 +20,15 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // Define Routes
 app.use("/api/transaction", require("./routes/api/transaction"));
 
-if (process.env.NODE_ENV === "production") {
-  // Set Static Folder
-  app.use(express.static(__dirname + "/build"));
-  app.get("/*", function (req, res) {
-    res.sendFile(__dirname + "/build/index.html", function (err) {
-      if (err) {
-        res.status(500).send(err);
-      }
-    });
+// Set Static Folder
+app.use(express.static(__dirname + "/build"));
+app.get("/*", function (req, res) {
+  res.sendFile(__dirname + "/build/index.html", function (err) {
+    if (err) {
+      res.status(500).send(err);
+    }
   });
-}
+});
 
 // SERVER
 const PORT = process.env.PORT || 5000;
