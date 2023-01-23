@@ -34,61 +34,64 @@ app.get("/*", function (req, res) {
 const PORT = process.env.PORT || 5000;
 // const PORT = 5000;
 
-app.listen(PORT, async () => {
-  console.log(`Server started on PORT ${PORT}`);
+let Rarity = ["Common", "Uncommon", "Rare", "Epic", "Legendary"];
 
-  let Rarity = ["Common", "Uncommon", "Rare", "Epic", "Legendary"];
+const provider = new providers.WebSocketProvider(
+  "wss://api.avax-test.network/ext/bc/C/ws",
+  {
+    chainId: 43113,
+    name: "fuji",
+  }
+);
 
-  const provider = new providers.WebSocketProvider(
-    "wss://api.avax-test.network/ext/bc/C/ws",
-    {
-      chainId: 43113,
-      name: "fuji",
-    }
+const mintContract = new Contract(
+  "0x10c43C1947d08e6fE69cAaC1730F8863a4Ddaa69",
+  mintAbi,
+  provider
+);
+
+const cueContract = new Contract(
+  "0xcd9df581f855d07144f150b0c681824548008644",
+  cueAbi,
+  provider
+)
+
+const mintListener = async (from, tokenId, collectionId, rarity, price, event) => {
+  const tokenData = JSON.parse(
+    await cueContract.tokenURIJSON(tokenId)
   );
+  
+  console.log("From:", from);
+  console.log("Token ID:", tokenId.toNumber());
+  console.log("Collection ID:", collectionId.toNumber());
+  console.log("Rarity:", Rarity[rarity]);
+  console.log("Price:", utils.formatEther(price), "AVAX");
+  console.log("EventHash:", event.transactionHash);
 
-  const mintContract = new Contract(
-    "0x10c43C1947d08e6fE69cAaC1730F8863a4Ddaa69",
-    mintAbi,
-    provider
+  SaveVolume({type:"mint",collectionId: Number(collectionId),price:Number(utils.formatEther(price))})
+  SaveTransaction({userAddress:from,nftName:tokenData.name,game:"8Ball",transferType:"mint",transactionID:event.transactionHash,amount: Number(utils.formatEther(price)) });
+};
+
+const upgradeListener = async (from, tokenId, collectionId, rarity, price, event) => {
+  const tokenData = JSON.parse(
+    await cueContract.tokenURIJSON(tokenId)
   );
+  console.log("From:", from);
+  console.log("Token ID:", tokenId.toNumber());
+  console.log("Collection ID:", collectionId.toNumber());
+  console.log("Rarity:", Rarity[rarity]);
+  console.log("Price:", utils.formatEther(price), "AVAX");
+  console.log("EventHash:", event.transactionHash);
 
-  const cueContract = new Contract(
-    "0xcd9df581f855d07144f150b0c681824548008644",
-    cueAbi,
-    provider
-  )
+  SaveVolume({type:"upgrade",collectionId: Number(collectionId),price:Number(utils.formatEther(price))})
+  SaveTransaction({userAddress:from,nftName:tokenData.name,game:"8Ball",transferType:"upgrade",transactionID:event.transactionHash,amount: Number(utils.formatEther(price)) });
+};
 
-  const mintListener = async (from, tokenId, collectionId, rarity, price, event) => {
-    const tokenData = JSON.parse(
-      await cueContract.tokenURIJSON(tokenId)
-    );
-    
-    console.log("From:", from);
-    console.log("Token ID:", tokenId.toNumber());
-    console.log("Collection ID:", collectionId.toNumber());
-    console.log("Rarity:", Rarity[rarity]);
-    console.log("Price:", utils.formatEther(price), "AVAX");
-    console.log("EventHash:", event.transactionHash);
-
-    SaveVolume({type:"mint",collectionId: Number(collectionId),price:Number(utils.formatEther(price))})
-    SaveTransaction({userAddress:from,nftName:tokenData.name,game:"8Ball",transferType:"mint",transactionID:event.transactionHash,amount: Number(utils.formatEther(price)) });
-  };
-
-  const upgradeListener = async (from, tokenId, collectionId, rarity, price, event) => {
-    const tokenData = JSON.parse(
-      await cueContract.tokenURIJSON(tokenId)
-    );
-    console.log("From:", from);
-    console.log("Token ID:", tokenId.toNumber());
-    console.log("Collection ID:", collectionId.toNumber());
-    console.log("Rarity:", Rarity[rarity]);
-    console.log("Price:", utils.formatEther(price), "AVAX");
-    console.log("EventHash:", event.transactionHash);
-
-    SaveVolume({type:"upgrade",collectionId: Number(collectionId),price:Number(utils.formatEther(price))})
-    SaveTransaction({userAddress:from,nftName:tokenData.name,game:"8Ball",transferType:"upgrade",transactionID:event.transactionHash,amount: Number(utils.formatEther(price)) });
-  };
+const InitializeContract = () => {
   mintContract.on(mintContract.filters.CuePurchased(), mintListener);
   mintContract.on(mintContract.filters.CueUpgraded(), upgradeListener);
-});
+}
+
+InitializeContract();
+
+app.listen(PORT, () => console.log(`Server started on PORT ${PORT}`));
