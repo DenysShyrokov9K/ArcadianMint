@@ -57,34 +57,42 @@ const cueContract = new Contract(
 )
 
 const mintListener = async (from, tokenId, collectionId, rarity, price, event) => {
-  const tokenData = JSON.parse(
-    await cueContract.tokenURIJSON(tokenId)
-  );
+  try{
+    const tokenData = JSON.parse(
+      await cueContract.tokenURIJSON(tokenId)
+    );
+    
+    console.log("From:", from);
+    console.log("Token ID:", tokenId.toNumber());
+    console.log("Collection ID:", collectionId.toNumber());
+    console.log("Rarity:", Rarity[rarity]);
+    console.log("Price:", utils.formatEther(price), "AVAX");
+    console.log("EventHash:", event.transactionHash);
   
-  console.log("From:", from);
-  console.log("Token ID:", tokenId.toNumber());
-  console.log("Collection ID:", collectionId.toNumber());
-  console.log("Rarity:", Rarity[rarity]);
-  console.log("Price:", utils.formatEther(price), "AVAX");
-  console.log("EventHash:", event.transactionHash);
-
-  SaveVolume({type:"mint",collectionId: Number(collectionId),price:Number(utils.formatEther(price))})
-  SaveTransaction({userAddress:from,nftName:tokenData.name,game:"8Ball",transferType:"mint",transactionID:event.transactionHash,amount: Number(utils.formatEther(price)) });
+    SaveVolume({type:"mint",collectionId: Number(collectionId),price:Number(utils.formatEther(price))})
+    SaveTransaction({userAddress:from,nftName:tokenData.name,game:"8Ball",transferType:"mint",transactionID:event.transactionHash,amount: Number(utils.formatEther(price)) });
+  } catch(err) {
+    console.log(err);
+  }
 };
 
 const upgradeListener = async (from, tokenId, collectionId, rarity, price, event) => {
+  try{
+    console.log("From:", from);
+    console.log("Token ID:", tokenId.toNumber());
+    console.log("Collection ID:", collectionId.toNumber());
+    console.log("Rarity:", Rarity[rarity]);
+    console.log("Price:", utils.formatEther(price), "AVAX");
+    console.log("EventHash:", event.transactionHash);
+  
+    SaveVolume({type:"upgrade",collectionId: Number(collectionId),price:Number(utils.formatEther(price))})
+    SaveTransaction({userAddress:from,nftName:tokenData.name,game:"8Ball",transferType:"upgrade",transactionID:event.transactionHash,amount: Number(utils.formatEther(price)) });
+  } catch(err) {
+    console.log(err);
+  }
   const tokenData = JSON.parse(
     await cueContract.tokenURIJSON(tokenId)
   );
-  console.log("From:", from);
-  console.log("Token ID:", tokenId.toNumber());
-  console.log("Collection ID:", collectionId.toNumber());
-  console.log("Rarity:", Rarity[rarity]);
-  console.log("Price:", utils.formatEther(price), "AVAX");
-  console.log("EventHash:", event.transactionHash);
-
-  SaveVolume({type:"upgrade",collectionId: Number(collectionId),price:Number(utils.formatEther(price))})
-  SaveTransaction({userAddress:from,nftName:tokenData.name,game:"8Ball",transferType:"upgrade",transactionID:event.transactionHash,amount: Number(utils.formatEther(price)) });
 };
 
 const InitializeContract = () => {
