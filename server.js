@@ -78,6 +78,10 @@ const mintListener = async (from, tokenId, collectionId, rarity, price, event) =
 
 const upgradeListener = async (from, tokenId, collectionId, rarity, price, event) => {
   try{
+    const tokenData = JSON.parse(
+      await cueContract.tokenURIJSON(tokenId)
+    );
+    
     console.log("From:", from);
     console.log("Token ID:", tokenId.toNumber());
     console.log("Collection ID:", collectionId.toNumber());
@@ -90,9 +94,6 @@ const upgradeListener = async (from, tokenId, collectionId, rarity, price, event
   } catch(err) {
     console.log(err);
   }
-  const tokenData = JSON.parse(
-    await cueContract.tokenURIJSON(tokenId)
-  );
 };
 
 const InitializeContract = () => {
