@@ -41,6 +41,7 @@
     "path": "^0.12.7",
     "playfab-sdk": "^2.112.221010",
     "request": "^2.88.2",
+    "socket.io": "^4.5.4",
     "speakeasy": "^2.0.0",
     "validator": "^13.7.0",
     "web3": "^1.8.1",

@@ -2,11 +2,19 @@ const express = require("express");
 const connectDB = require("./config/db");
 const app = express();
 const bodyParser = require("body-parser");
+const { createServer } = require("http");
+const { Server } = require("socket.io");
 const Moralis = require("moralis").default;
 const { Contract, providers, utils } = require("ethers");
 const {mintAbi,cueAbi} = require("./contract/abi.json");
 const SaveTransaction = require('./routes/save');
 const SaveVolume = require('./routes/saveVolume');
+
+const httpServer = createServer(app);
+const io = new Server(httpServer, { cors: {
+  origin: "*",
+  methods: ["GET", "POST"]
+}});
 
 require("dotenv").config();
 // Connect to Database
@@ -70,8 +78,9 @@ const mintListener = async (from, tokenId, collectionId, rarity, price, event) =
     console.log("Price:", utils.formatEther(price), "AVAX");
     console.log("EventHash:", event.transactionHash);
   
-    SaveVolume({type:"mint",collectionId: Number(collectionId),price:Number(utils.formatEther(price))})
-    SaveTransaction({userAddress:from,nftName:tokenData.name,game:"8Ball",transferType:"mint",transactionID:event.transactionHash,amount: Number(utils.formatEther(price)) });
+    await SaveVolume({type:"mint",collectionId: Number(collectionId),price:Number(utils.formatEther(price))})
+    await SaveTransaction({userAddress:from,nftName:tokenData.name,game:"8Ball",transferType:"mint",transactionID:event.transactionHash,amount: Number(utils.formatEther(price)) });
+    io.emit('recentItem', {success: true});
   } catch(err) {
     console.log(err);
   }
@@ -90,7 +99,7 @@ const upgradeListener = async (from, tokenId, collectionId, rarity, price, event
     console.log("Rarity:", Rarity[rarity]);
     console.log("Price:", utils.formatEther(price), "AVAX");
     console.log("EventHash:", event.transactionHash);
-  
+    
     SaveVolume({type:"upgrade",collectionId: Number(collectionId),price:Number(utils.formatEther(price))})
     SaveTransaction({userAddress:from,nftName:tokenData.name,game:"8Ball",transferType:"upgrade",transactionID:event.transactionHash,amount: Number(utils.formatEther(price)) });
   } catch(err) {
@@ -105,4 +114,12 @@ const InitializeContract = () => {
 
 InitializeContract();
 
-app.listen(PORT, () => console.log(`Server started on PORT ${PORT}`));
+io.on("connection", (socket) => {
+  console.log('new client is connected:', socket.id);
+
+  socket.on('loggedin', (walletAddress) => {
+    
+  })
+});
+
+httpServer.listen(PORT, () => console.log(`Server started on PORT ${PORT}`));

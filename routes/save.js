@@ -1,6 +1,6 @@
 const MintTransaction = require('../models/mintTransaction');
 
-const SaveTransaction = ({userAddress,nftName,game,transferType,transactionID,amount}) => {
+const SaveTransaction = async ({userAddress,nftName,game,transferType,transactionID,amount}) => {
     try{
         let transaction = new MintTransaction({          
             userAddress: userAddress,
@@ -10,7 +10,7 @@ const SaveTransaction = ({userAddress,nftName,game,transferType,transactionID,am
             transactionID: transactionID,
             amount: amount
         })
-        transaction.save();
+        await transaction.save();
     }catch(err){
         console.log(err);
     }    
