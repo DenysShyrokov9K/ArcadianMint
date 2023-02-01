@@ -48,8 +48,8 @@ let Rarity = ["Common", "Uncommon", "Rare", "Epic", "Legendary"];
 const provider = new providers.WebSocketProvider(
   "wss://api.avax-test.network/ext/bc/C/ws",
   {
-    chainId: 43113,
-    name: "fuji",
+    chainId: 43114,
+    name: "avalanche",
   }
 );
 
@@ -81,7 +81,7 @@ const mintListener = async (from, tokenId, collectionId, rarity, price, event) =
   
     await SaveVolume({type:"mint",collectionId: Number(collectionId),price:Number(utils.formatEther(price))})
     await SaveTransaction({userAddress:from,nftName:tokenData.name,game:"8Ball",transferType:"mint",transactionID:event.transactionHash,amount: Number(utils.formatEther(price)) });
-    io.emit('recentItem', {success: true});
+    // io.emit('recentItem', {success: true});
   } catch(err) {
     console.log(err);
   }
