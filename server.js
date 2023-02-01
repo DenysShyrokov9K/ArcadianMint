@@ -39,7 +39,7 @@ const PORT = process.env.PORT || 5000;
 let Rarity = ["Common", "Uncommon", "Rare", "Epic", "Legendary"];
 
 const provider = new providers.WebSocketProvider(
-  "wss://api.avax.network/ext/bc/C/ws",
+  "wss://ws-nd-222-006-991.p2pify.com/23c9178be0e26e0573761002de8bfaa8/ext/bc/C/ws",
   {
     chainId: 43114,
     name: "avalanche",
