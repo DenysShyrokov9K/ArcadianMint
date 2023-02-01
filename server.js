@@ -3,8 +3,6 @@ const connectDB = require("./config/db");
 const app = express();
 const bodyParser = require("body-parser");
 const { createServer } = require("http");
-// const { Server } = require("socket.io");
-const Moralis = require("moralis").default;
 const { Contract, providers, utils } = require("ethers");
 const {mintAbi,cueAbi} = require("./contract/abi.json");
 const SaveTransaction = require('./routes/save');
@@ -12,10 +10,7 @@ const SaveVolume = require('./routes/saveVolume');
 
 const httpServer = createServer(app);
 
-// const io = new Server(httpServer, { cors: {
-//   origin: "*",
-//   methods: ["GET", "POST"]
-// }});
+
 
 require("dotenv").config();
 // Connect to Database
@@ -39,9 +34,7 @@ app.get("/*", function (req, res) {
   });
 });
 
-// SERVER
 const PORT = process.env.PORT || 5000;
-// const PORT = 5000;
 
 let Rarity = ["Common", "Uncommon", "Rare", "Epic", "Legendary"];
 
@@ -81,7 +74,6 @@ const mintListener = async (from, tokenId, collectionId, rarity, price, event) =
   
     await SaveVolume({type:"mint",collectionId: Number(collectionId),price:Number(utils.formatEther(price))})
     await SaveTransaction({userAddress:from,nftName:tokenData.name,game:"8Ball",transferType:"mint",transactionID:event.transactionHash,amount: Number(utils.formatEther(price)) });
-    // io.emit('recentItem', {success: true});
   } catch(err) {
     console.log(err);
   }
@@ -115,12 +107,5 @@ const InitializeContract = () => {
 
 InitializeContract();
 
-// io.on("connection", (socket) => {
-//   console.log('new client is connected:', socket.id);
-
-//   // socket.on('loggedin', (walletAddress) => {
-    
-//   // })
-// });
 
 httpServer.listen(PORT, () => console.log(`Server started on PORT ${PORT}`));
