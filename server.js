@@ -54,13 +54,13 @@ const provider = new providers.WebSocketProvider(
 );
 
 const mintContract = new Contract(
-  "0x10c43C1947d08e6fE69cAaC1730F8863a4Ddaa69",
+  "0x8Dd342E845Fe738FDed2F8cF21B761a9EbC2A99f",
   mintAbi,
   provider
 );
 
 const cueContract = new Contract(
-  "0xcd9df581f855d07144f150b0c681824548008644",
+  "0xEcC82f602a7982a9464844DEE6dBc751E3615BB4",
   cueAbi,
   provider
 )
