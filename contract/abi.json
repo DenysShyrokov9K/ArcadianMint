@@ -342,9 +342,7 @@
     {
       "inputs": [],
       "name": "DEFAULT_ADMIN_ROLE",
-      "outputs": [
-        { "internalType": "bytes32", "name": "", "type": "bytes32" }
-      ],
+      "outputs": [{ "internalType": "bytes32", "name": "", "type": "bytes32" }],
       "stateMutability": "view",
       "type": "function"
     },
@@ -376,11 +374,7 @@
               "name": "duration",
               "type": "uint256"
             },
-            {
-              "internalType": "uint256",
-              "name": "discount",
-              "type": "uint256"
-            }
+            { "internalType": "uint256", "name": "discount", "type": "uint256" }
           ],
           "internalType": "struct I8BallCueMinter.AllowlistConfig",
           "name": "allowlistConfig",
@@ -443,11 +437,7 @@
           "name": "collectionId",
           "type": "uint256"
         },
-        {
-          "internalType": "address[]",
-          "name": "wallets",
-          "type": "address[]"
-        }
+        { "internalType": "address[]", "name": "wallets", "type": "address[]" }
       ],
       "name": "addToCollectionAllowlist",
       "outputs": [],
@@ -466,11 +456,7 @@
     },
     {
       "inputs": [
-        {
-          "internalType": "uint256",
-          "name": "collectionId",
-          "type": "uint256"
-        }
+        { "internalType": "uint256", "name": "collectionId", "type": "uint256" }
       ],
       "name": "buyRandomCue",
       "outputs": [],
@@ -478,32 +464,22 @@
       "type": "function"
     },
     {
-      "inputs": [
-        { "internalType": "address", "name": "", "type": "address" }
-      ],
+      "inputs": [{ "internalType": "address", "name": "", "type": "address" }],
       "name": "credits",
-      "outputs": [
-        { "internalType": "uint256", "name": "", "type": "uint256" }
-      ],
+      "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
       "stateMutability": "view",
       "type": "function"
     },
     {
       "inputs": [],
       "name": "cue",
-      "outputs": [
-        { "internalType": "address", "name": "", "type": "address" }
-      ],
+      "outputs": [{ "internalType": "address", "name": "", "type": "address" }],
       "stateMutability": "view",
       "type": "function"
     },
     {
       "inputs": [
-        {
-          "internalType": "uint256",
-          "name": "collectionId",
-          "type": "uint256"
-        }
+        { "internalType": "uint256", "name": "collectionId", "type": "uint256" }
       ],
       "name": "getCollectionAllowlist",
       "outputs": [
@@ -514,11 +490,7 @@
     },
     {
       "inputs": [
-        {
-          "internalType": "uint256",
-          "name": "collectionId",
-          "type": "uint256"
-        }
+        { "internalType": "uint256", "name": "collectionId", "type": "uint256" }
       ],
       "name": "getCollectionAllowlistConfig",
       "outputs": [
@@ -529,11 +501,7 @@
               "name": "duration",
               "type": "uint256"
             },
-            {
-              "internalType": "uint256",
-              "name": "discount",
-              "type": "uint256"
-            }
+            { "internalType": "uint256", "name": "discount", "type": "uint256" }
           ],
           "internalType": "struct I8BallCueMinter.AllowlistConfig",
           "name": "",
@@ -577,11 +545,7 @@
     },
     {
       "inputs": [
-        {
-          "internalType": "uint256",
-          "name": "collectionId",
-          "type": "uint256"
-        }
+        { "internalType": "uint256", "name": "collectionId", "type": "uint256" }
       ],
       "name": "getCollectionDesignIds",
       "outputs": [
@@ -601,11 +565,7 @@
     },
     {
       "inputs": [
-        {
-          "internalType": "uint256",
-          "name": "collectionId",
-          "type": "uint256"
-        }
+        { "internalType": "uint256", "name": "collectionId", "type": "uint256" }
       ],
       "name": "getCollectionMintConfig",
       "outputs": [
@@ -628,11 +588,7 @@
     },
     {
       "inputs": [
-        {
-          "internalType": "uint256",
-          "name": "collectionId",
-          "type": "uint256"
-        }
+        { "internalType": "uint256", "name": "collectionId", "type": "uint256" }
       ],
       "name": "getCollectionRandom",
       "outputs": [{ "internalType": "bool", "name": "", "type": "bool" }],
@@ -641,11 +597,7 @@
     },
     {
       "inputs": [
-        {
-          "internalType": "uint256",
-          "name": "collectionId",
-          "type": "uint256"
-        }
+        { "internalType": "uint256", "name": "collectionId", "type": "uint256" }
       ],
       "name": "getCollectionRoyaltyConfig",
       "outputs": [
@@ -672,16 +624,10 @@
     },
     {
       "inputs": [
-        {
-          "internalType": "uint256",
-          "name": "collectionId",
-          "type": "uint256"
-        }
+        { "internalType": "uint256", "name": "collectionId", "type": "uint256" }
       ],
       "name": "getMintPrice",
-      "outputs": [
-        { "internalType": "uint256", "name": "", "type": "uint256" }
-      ],
+      "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
       "stateMutability": "view",
       "type": "function"
     },
@@ -690,9 +636,7 @@
         { "internalType": "bytes32", "name": "role", "type": "bytes32" }
       ],
       "name": "getRoleAdmin",
-      "outputs": [
-        { "internalType": "bytes32", "name": "", "type": "bytes32" }
-      ],
+      "outputs": [{ "internalType": "bytes32", "name": "", "type": "bytes32" }],
       "stateMutability": "view",
       "type": "function"
     },
@@ -702,9 +646,7 @@
         { "internalType": "uint256", "name": "index", "type": "uint256" }
       ],
       "name": "getRoleMember",
-      "outputs": [
-        { "internalType": "address", "name": "", "type": "address" }
-      ],
+      "outputs": [{ "internalType": "address", "name": "", "type": "address" }],
       "stateMutability": "view",
       "type": "function"
     },
@@ -713,9 +655,7 @@
         { "internalType": "bytes32", "name": "role", "type": "bytes32" }
       ],
       "name": "getRoleMemberCount",
-      "outputs": [
-        { "internalType": "uint256", "name": "", "type": "uint256" }
-      ],
+      "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
       "stateMutability": "view",
       "type": "function"
     },
@@ -798,9 +738,7 @@
     {
       "inputs": [],
       "name": "proxiableUUID",
-      "outputs": [
-        { "internalType": "bytes32", "name": "", "type": "bytes32" }
-      ],
+      "outputs": [{ "internalType": "bytes32", "name": "", "type": "bytes32" }],
       "stateMutability": "view",
       "type": "function"
     },
@@ -835,11 +773,7 @@
           "name": "collectionId",
           "type": "uint256"
         },
-        {
-          "internalType": "address[]",
-          "name": "wallets",
-          "type": "address[]"
-        }
+        { "internalType": "address[]", "name": "wallets", "type": "address[]" }
       ],
       "name": "removeFromCollectionAllowlist",
       "outputs": [],
@@ -918,11 +852,7 @@
               "name": "duration",
               "type": "uint256"
             },
-            {
-              "internalType": "uint256",
-              "name": "discount",
-              "type": "uint256"
-            }
+            { "internalType": "uint256", "name": "discount", "type": "uint256" }
           ],
           "internalType": "struct I8BallCueMinter.AllowlistConfig",
           "name": "config",
@@ -1056,9 +986,7 @@
     {
       "inputs": [],
       "name": "treasury",
-      "outputs": [
-        { "internalType": "address", "name": "", "type": "address" }
-      ],
+      "outputs": [{ "internalType": "address", "name": "", "type": "address" }],
       "stateMutability": "view",
       "type": "function"
     },
@@ -1070,13 +998,9 @@
       "type": "function"
     },
     {
-      "inputs": [
-        { "internalType": "address", "name": "", "type": "address" }
-      ],
+      "inputs": [{ "internalType": "address", "name": "", "type": "address" }],
       "name": "upgradeCredits",
-      "outputs": [
-        { "internalType": "uint256", "name": "", "type": "uint256" }
-      ],
+      "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
       "stateMutability": "view",
       "type": "function"
     },
@@ -1096,9 +1020,7 @@
     {
       "inputs": [],
       "name": "upgradePrice",
-      "outputs": [
-        { "internalType": "uint256", "name": "", "type": "uint256" }
-      ],
+      "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
       "stateMutability": "view",
       "type": "function"
     },
@@ -1157,85 +1079,61 @@
         {
           "indexed": true,
           "internalType": "address",
+          "name": "owner",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "approved",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "internalType": "uint256",
+          "name": "tokenId",
+          "type": "uint256"
+        }
+      ],
+      "name": "Approval",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "owner",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "operator",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "bool",
+          "name": "approved",
+          "type": "bool"
+        }
+      ],
+      "name": "ApprovalForAll",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
           "name": "beacon",
           "type": "address"
         }
       ],
       "name": "BeaconUpgraded",
-      "type": "event"
-    },
-    {
-      "anonymous": false,
-      "inputs": [
-        {
-          "indexed": true,
-          "internalType": "address",
-          "name": "from",
-          "type": "address"
-        },
-        {
-          "indexed": false,
-          "internalType": "uint256",
-          "name": "tokenId",
-          "type": "uint256"
-        },
-        {
-          "indexed": false,
-          "internalType": "uint256",
-          "name": "collectionId",
-          "type": "uint256"
-        },
-        {
-          "indexed": false,
-          "internalType": "enum I8BallCommon.Rarity",
-          "name": "rarity",
-          "type": "uint8"
-        },
-        {
-          "indexed": false,
-          "internalType": "uint256",
-          "name": "price",
-          "type": "uint256"
-        }
-      ],
-      "name": "CuePurchased",
-      "type": "event"
-    },
-    {
-      "anonymous": false,
-      "inputs": [
-        {
-          "indexed": true,
-          "internalType": "address",
-          "name": "from",
-          "type": "address"
-        },
-        {
-          "indexed": false,
-          "internalType": "uint256",
-          "name": "tokenId",
-          "type": "uint256"
-        },
-        {
-          "indexed": false,
-          "internalType": "uint256",
-          "name": "collectionId",
-          "type": "uint256"
-        },
-        {
-          "indexed": false,
-          "internalType": "enum I8BallCommon.Rarity",
-          "name": "rarity",
-          "type": "uint8"
-        },
-        {
-          "indexed": false,
-          "internalType": "uint256",
-          "name": "price",
-          "type": "uint256"
-        }
-      ],
-      "name": "CueUpgraded",
       "type": "event"
     },
     {
@@ -1249,49 +1147,6 @@
         }
       ],
       "name": "Initialized",
-      "type": "event"
-    },
-    {
-      "anonymous": false,
-      "inputs": [
-        {
-          "indexed": false,
-          "internalType": "uint256",
-          "name": "rand",
-          "type": "uint256"
-        },
-        {
-          "indexed": false,
-          "internalType": "uint256",
-          "name": "sum",
-          "type": "uint256"
-        },
-        {
-          "indexed": false,
-          "internalType": "uint256",
-          "name": "result",
-          "type": "uint256"
-        },
-        {
-          "indexed": false,
-          "internalType": "uint256",
-          "name": "max",
-          "type": "uint256"
-        },
-        {
-          "indexed": false,
-          "internalType": "uint256[]",
-          "name": "designIds",
-          "type": "uint256[]"
-        },
-        {
-          "indexed": false,
-          "internalType": "uint256",
-          "name": "designId",
-          "type": "uint256"
-        }
-      ],
-      "name": "MandoHasWeightedDice",
       "type": "event"
     },
     {
@@ -1398,50 +1253,13 @@
           "type": "address"
         },
         {
-          "indexed": false,
+          "indexed": true,
           "internalType": "uint256",
-          "name": "collectionId",
-          "type": "uint256"
-        },
-        {
-          "indexed": false,
-          "internalType": "uint256",
-          "name": "amount",
+          "name": "tokenId",
           "type": "uint256"
         }
       ],
-      "name": "RoyaltyPaid",
-      "type": "event"
-    },
-    {
-      "anonymous": false,
-      "inputs": [
-        {
-          "indexed": true,
-          "internalType": "address",
-          "name": "from",
-          "type": "address"
-        },
-        {
-          "indexed": true,
-          "internalType": "address",
-          "name": "to",
-          "type": "address"
-        },
-        {
-          "indexed": false,
-          "internalType": "uint256",
-          "name": "collectionId",
-          "type": "uint256"
-        },
-        {
-          "indexed": false,
-          "internalType": "uint256",
-          "name": "amount",
-          "type": "uint256"
-        }
-      ],
-      "name": "RoyaltyShareFailed",
+      "name": "Transfer",
       "type": "event"
     },
     {
@@ -1473,9 +1291,7 @@
     {
       "inputs": [],
       "name": "DEFAULT_ADMIN_ROLE",
-      "outputs": [
-        { "internalType": "bytes32", "name": "", "type": "bytes32" }
-      ],
+      "outputs": [{ "internalType": "bytes32", "name": "", "type": "bytes32" }],
       "stateMutability": "view",
       "type": "function"
     },
@@ -1486,39 +1302,7 @@
           "name": "collectionId",
           "type": "uint256"
         },
-        { "internalType": "string", "name": "name", "type": "string" },
-        {
-          "components": [
-            {
-              "internalType": "uint256",
-              "name": "startTime",
-              "type": "uint256"
-            },
-            { "internalType": "uint256", "name": "price", "type": "uint256" }
-          ],
-          "internalType": "struct I8BallCueMinter.MintConfig",
-          "name": "mintConfig",
-          "type": "tuple"
-        },
-        {
-          "components": [
-            {
-              "internalType": "uint256",
-              "name": "duration",
-              "type": "uint256"
-            },
-            {
-              "internalType": "uint256",
-              "name": "discount",
-              "type": "uint256"
-            }
-          ],
-          "internalType": "struct I8BallCueMinter.AllowlistConfig",
-          "name": "allowlistConfig",
-          "type": "tuple"
-        },
-        { "internalType": "bool", "name": "random", "type": "bool" },
-        { "internalType": "bool", "name": "exists", "type": "bool" }
+        { "internalType": "string", "name": "name", "type": "string" }
       ],
       "name": "addCollection",
       "outputs": [],
@@ -1559,131 +1343,88 @@
     },
     {
       "inputs": [
-        { "internalType": "address", "name": "wallet", "type": "address" },
-        { "internalType": "uint256", "name": "_credits", "type": "uint256" }
+        { "internalType": "address", "name": "to", "type": "address" },
+        { "internalType": "uint256", "name": "tokenId", "type": "uint256" }
       ],
-      "name": "addCredits",
+      "name": "approve",
       "outputs": [],
       "stateMutability": "nonpayable",
       "type": "function"
     },
     {
       "inputs": [
-        {
-          "internalType": "uint256",
-          "name": "collectionId",
-          "type": "uint256"
-        },
-        {
-          "internalType": "address[]",
-          "name": "wallets",
-          "type": "address[]"
-        }
+        { "internalType": "address", "name": "owner", "type": "address" }
       ],
-      "name": "addToCollectionAllowlist",
-      "outputs": [],
-      "stateMutability": "nonpayable",
+      "name": "balanceOf",
+      "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+      "stateMutability": "view",
       "type": "function"
     },
     {
       "inputs": [
-        { "internalType": "address", "name": "wallet", "type": "address" },
-        { "internalType": "uint256", "name": "_credits", "type": "uint256" }
+        { "internalType": "uint256[]", "name": "tokenIds", "type": "uint256[]" }
       ],
-      "name": "addUpgradeCredits",
-      "outputs": [],
-      "stateMutability": "nonpayable",
-      "type": "function"
-    },
-    {
-      "inputs": [
-        {
-          "internalType": "uint256",
-          "name": "collectionId",
-          "type": "uint256"
-        }
-      ],
-      "name": "buyRandomCue",
-      "outputs": [],
-      "stateMutability": "payable",
-      "type": "function"
-    },
-    {
-      "inputs": [
-        { "internalType": "address", "name": "", "type": "address" }
-      ],
-      "name": "credits",
+      "name": "batchTokenURI",
       "outputs": [
-        { "internalType": "uint256", "name": "", "type": "uint256" }
+        { "internalType": "string[]", "name": "", "type": "string[]" }
       ],
       "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        { "internalType": "uint256[]", "name": "tokenIds", "type": "uint256[]" }
+      ],
+      "name": "batchTokenURIJSON",
+      "outputs": [
+        { "internalType": "string[]", "name": "", "type": "string[]" }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        { "internalType": "address", "name": "from", "type": "address" },
+        { "internalType": "address", "name": "to", "type": "address" },
+        { "internalType": "uint256[]", "name": "tokenIds", "type": "uint256[]" }
+      ],
+      "name": "batchTransferFrom",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        { "internalType": "uint256", "name": "tokenId", "type": "uint256" }
+      ],
+      "name": "burn",
+      "outputs": [],
+      "stateMutability": "nonpayable",
       "type": "function"
     },
     {
       "inputs": [],
-      "name": "cue",
+      "name": "getAllTokenIds",
       "outputs": [
-        { "internalType": "address", "name": "", "type": "address" }
+        { "internalType": "uint256[]", "name": "", "type": "uint256[]" }
       ],
       "stateMutability": "view",
       "type": "function"
     },
     {
       "inputs": [
-        {
-          "internalType": "uint256",
-          "name": "collectionId",
-          "type": "uint256"
-        }
+        { "internalType": "uint256", "name": "tokenId", "type": "uint256" }
       ],
-      "name": "getCollectionAllowlist",
-      "outputs": [
-        { "internalType": "address[]", "name": "", "type": "address[]" }
-      ],
+      "name": "getApproved",
+      "outputs": [{ "internalType": "address", "name": "", "type": "address" }],
       "stateMutability": "view",
       "type": "function"
     },
     {
       "inputs": [
-        {
-          "internalType": "uint256",
-          "name": "collectionId",
-          "type": "uint256"
-        }
+        { "internalType": "uint256", "name": "tokenId", "type": "uint256" }
       ],
-      "name": "getCollectionAllowlistConfig",
-      "outputs": [
-        {
-          "components": [
-            {
-              "internalType": "uint256",
-              "name": "duration",
-              "type": "uint256"
-            },
-            {
-              "internalType": "uint256",
-              "name": "discount",
-              "type": "uint256"
-            }
-          ],
-          "internalType": "struct I8BallCueMinter.AllowlistConfig",
-          "name": "",
-          "type": "tuple"
-        }
-      ],
-      "stateMutability": "view",
-      "type": "function"
-    },
-    {
-      "inputs": [
-        {
-          "internalType": "uint256",
-          "name": "collectionId",
-          "type": "uint256"
-        },
-        { "internalType": "uint256", "name": "designId", "type": "uint256" }
-      ],
-      "name": "getCollectionDesign",
+      "name": "getCue",
       "outputs": [
         {
           "components": [
@@ -1694,124 +1435,27 @@
             },
             {
               "internalType": "uint256",
-              "name": "remaining",
+              "name": "collectionId",
               "type": "uint256"
-            }
-          ],
-          "internalType": "struct I8BallCueMinter.DesignBase",
-          "name": "",
-          "type": "tuple"
-        }
-      ],
-      "stateMutability": "view",
-      "type": "function"
-    },
-    {
-      "inputs": [
-        {
-          "internalType": "uint256",
-          "name": "collectionId",
-          "type": "uint256"
-        }
-      ],
-      "name": "getCollectionDesignIds",
-      "outputs": [
-        { "internalType": "uint256[]", "name": "", "type": "uint256[]" }
-      ],
-      "stateMutability": "view",
-      "type": "function"
-    },
-    {
-      "inputs": [],
-      "name": "getCollectionIds",
-      "outputs": [
-        { "internalType": "uint256[]", "name": "", "type": "uint256[]" }
-      ],
-      "stateMutability": "view",
-      "type": "function"
-    },
-    {
-      "inputs": [
-        {
-          "internalType": "uint256",
-          "name": "collectionId",
-          "type": "uint256"
-        }
-      ],
-      "name": "getCollectionMintConfig",
-      "outputs": [
-        {
-          "components": [
-            {
-              "internalType": "uint256",
-              "name": "startTime",
-              "type": "uint256"
-            },
-            { "internalType": "uint256", "name": "price", "type": "uint256" }
-          ],
-          "internalType": "struct I8BallCueMinter.MintConfig",
-          "name": "",
-          "type": "tuple"
-        }
-      ],
-      "stateMutability": "view",
-      "type": "function"
-    },
-    {
-      "inputs": [
-        {
-          "internalType": "uint256",
-          "name": "collectionId",
-          "type": "uint256"
-        }
-      ],
-      "name": "getCollectionRandom",
-      "outputs": [{ "internalType": "bool", "name": "", "type": "bool" }],
-      "stateMutability": "view",
-      "type": "function"
-    },
-    {
-      "inputs": [
-        {
-          "internalType": "uint256",
-          "name": "collectionId",
-          "type": "uint256"
-        }
-      ],
-      "name": "getCollectionRoyaltyConfig",
-      "outputs": [
-        {
-          "components": [
-            {
-              "internalType": "address",
-              "name": "treasury",
-              "type": "address"
             },
             {
               "internalType": "uint256",
-              "name": "basisPoints",
+              "name": "designId",
               "type": "uint256"
-            }
+            },
+            { "internalType": "uint256", "name": "power", "type": "uint256" },
+            {
+              "internalType": "uint256",
+              "name": "accuracy",
+              "type": "uint256"
+            },
+            { "internalType": "uint256", "name": "spin", "type": "uint256" },
+            { "internalType": "uint256", "name": "time", "type": "uint256" }
           ],
-          "internalType": "struct I8BallCueMinter.RoyaltyConfig",
+          "internalType": "struct I8BallCommon.Cue",
           "name": "",
           "type": "tuple"
         }
-      ],
-      "stateMutability": "view",
-      "type": "function"
-    },
-    {
-      "inputs": [
-        {
-          "internalType": "uint256",
-          "name": "collectionId",
-          "type": "uint256"
-        }
-      ],
-      "name": "getMintPrice",
-      "outputs": [
-        { "internalType": "uint256", "name": "", "type": "uint256" }
       ],
       "stateMutability": "view",
       "type": "function"
@@ -1821,9 +1465,7 @@
         { "internalType": "bytes32", "name": "role", "type": "bytes32" }
       ],
       "name": "getRoleAdmin",
-      "outputs": [
-        { "internalType": "bytes32", "name": "", "type": "bytes32" }
-      ],
+      "outputs": [{ "internalType": "bytes32", "name": "", "type": "bytes32" }],
       "stateMutability": "view",
       "type": "function"
     },
@@ -1833,9 +1475,7 @@
         { "internalType": "uint256", "name": "index", "type": "uint256" }
       ],
       "name": "getRoleMember",
-      "outputs": [
-        { "internalType": "address", "name": "", "type": "address" }
-      ],
+      "outputs": [{ "internalType": "address", "name": "", "type": "address" }],
       "stateMutability": "view",
       "type": "function"
     },
@@ -1844,9 +1484,7 @@
         { "internalType": "bytes32", "name": "role", "type": "bytes32" }
       ],
       "name": "getRoleMemberCount",
-      "outputs": [
-        { "internalType": "uint256", "name": "", "type": "uint256" }
-      ],
+      "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
       "stateMutability": "view",
       "type": "function"
     },
@@ -1872,6 +1510,13 @@
     },
     {
       "inputs": [],
+      "name": "imageBaseURI",
+      "outputs": [{ "internalType": "string", "name": "", "type": "string" }],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
       "name": "initialize",
       "outputs": [],
       "stateMutability": "nonpayable",
@@ -1879,44 +1524,81 @@
     },
     {
       "inputs": [
-        {
-          "internalType": "uint256",
-          "name": "collectionId",
-          "type": "uint256"
-        },
-        { "internalType": "address", "name": "wallet", "type": "address" }
+        { "internalType": "address", "name": "owner", "type": "address" },
+        { "internalType": "address", "name": "operator", "type": "address" }
       ],
-      "name": "isAllowlisted",
+      "name": "isApprovedForAll",
       "outputs": [{ "internalType": "bool", "name": "", "type": "bool" }],
       "stateMutability": "view",
       "type": "function"
     },
     {
-      "inputs": [],
-      "name": "mintRandomCue",
-      "outputs": [],
-      "stateMutability": "nonpayable",
+      "inputs": [
+        {
+          "internalType": "enum I8BallCommon.Rarity",
+          "name": "rarity",
+          "type": "uint8"
+        }
+      ],
+      "name": "maxLevel",
+      "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+      "stateMutability": "pure",
       "type": "function"
     },
     {
       "inputs": [
+        { "internalType": "address", "name": "to", "type": "address" },
+        { "internalType": "uint256", "name": "tokenId", "type": "uint256" },
         {
-          "internalType": "uint256",
-          "name": "collectionId",
-          "type": "uint256"
-        },
-        { "internalType": "uint256", "name": "designId", "type": "uint256" }
+          "components": [
+            {
+              "internalType": "enum I8BallCommon.Rarity",
+              "name": "rarity",
+              "type": "uint8"
+            },
+            {
+              "internalType": "uint256",
+              "name": "collectionId",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "designId",
+              "type": "uint256"
+            },
+            { "internalType": "uint256", "name": "power", "type": "uint256" },
+            {
+              "internalType": "uint256",
+              "name": "accuracy",
+              "type": "uint256"
+            },
+            { "internalType": "uint256", "name": "spin", "type": "uint256" },
+            { "internalType": "uint256", "name": "time", "type": "uint256" }
+          ],
+          "internalType": "struct I8BallCommon.Cue",
+          "name": "cue",
+          "type": "tuple"
+        }
       ],
-      "name": "mintSpecificCue",
+      "name": "mint",
       "outputs": [],
-      "stateMutability": "payable",
+      "stateMutability": "nonpayable",
       "type": "function"
     },
     {
       "inputs": [],
-      "name": "pause",
-      "outputs": [],
-      "stateMutability": "nonpayable",
+      "name": "name",
+      "outputs": [{ "internalType": "string", "name": "", "type": "string" }],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        { "internalType": "uint256", "name": "tokenId", "type": "uint256" }
+      ],
+      "name": "ownerOf",
+      "outputs": [{ "internalType": "address", "name": "", "type": "address" }],
+      "stateMutability": "view",
       "type": "function"
     },
     {
@@ -1929,62 +1611,8 @@
     {
       "inputs": [],
       "name": "proxiableUUID",
-      "outputs": [
-        { "internalType": "bytes32", "name": "", "type": "bytes32" }
-      ],
+      "outputs": [{ "internalType": "bytes32", "name": "", "type": "bytes32" }],
       "stateMutability": "view",
-      "type": "function"
-    },
-    {
-      "inputs": [
-        { "internalType": "uint256", "name": "requestId", "type": "uint256" },
-        {
-          "internalType": "uint256[]",
-          "name": "randomWords",
-          "type": "uint256[]"
-        }
-      ],
-      "name": "rawFulfillRandomWords",
-      "outputs": [],
-      "stateMutability": "nonpayable",
-      "type": "function"
-    },
-    {
-      "inputs": [
-        { "internalType": "address", "name": "wallet", "type": "address" },
-        { "internalType": "uint256", "name": "_credits", "type": "uint256" }
-      ],
-      "name": "removeCredits",
-      "outputs": [],
-      "stateMutability": "nonpayable",
-      "type": "function"
-    },
-    {
-      "inputs": [
-        {
-          "internalType": "uint256",
-          "name": "collectionId",
-          "type": "uint256"
-        },
-        {
-          "internalType": "address[]",
-          "name": "wallets",
-          "type": "address[]"
-        }
-      ],
-      "name": "removeFromCollectionAllowlist",
-      "outputs": [],
-      "stateMutability": "nonpayable",
-      "type": "function"
-    },
-    {
-      "inputs": [
-        { "internalType": "address", "name": "wallet", "type": "address" },
-        { "internalType": "uint256", "name": "_credits", "type": "uint256" }
-      ],
-      "name": "removeUpgradeCredits",
-      "outputs": [],
-      "stateMutability": "nonpayable",
       "type": "function"
     },
     {
@@ -1999,34 +1627,6 @@
     },
     {
       "inputs": [
-        { "internalType": "address", "name": "requester", "type": "address" }
-      ],
-      "name": "requestOf",
-      "outputs": [
-        {
-          "components": [
-            { "internalType": "uint256", "name": "id", "type": "uint256" },
-            {
-              "internalType": "uint256[]",
-              "name": "links",
-              "type": "uint256[]"
-            },
-            {
-              "internalType": "uint256[]",
-              "name": "words",
-              "type": "uint256[]"
-            }
-          ],
-          "internalType": "struct IChainlinkVRFConsumer.Request",
-          "name": "",
-          "type": "tuple"
-        }
-      ],
-      "stateMutability": "view",
-      "type": "function"
-    },
-    {
-      "inputs": [
         { "internalType": "bytes32", "name": "role", "type": "bytes32" },
         { "internalType": "address", "name": "account", "type": "address" }
       ],
@@ -2037,140 +1637,42 @@
     },
     {
       "inputs": [
-        {
-          "internalType": "uint256",
-          "name": "collectionId",
-          "type": "uint256"
-        },
-        {
-          "components": [
-            {
-              "internalType": "uint256",
-              "name": "duration",
-              "type": "uint256"
-            },
-            {
-              "internalType": "uint256",
-              "name": "discount",
-              "type": "uint256"
-            }
-          ],
-          "internalType": "struct I8BallCueMinter.AllowlistConfig",
-          "name": "config",
-          "type": "tuple"
-        }
+        { "internalType": "address", "name": "from", "type": "address" },
+        { "internalType": "address", "name": "to", "type": "address" },
+        { "internalType": "uint256", "name": "tokenId", "type": "uint256" }
       ],
-      "name": "setCollectionAllowlistConfig",
+      "name": "safeTransferFrom",
       "outputs": [],
       "stateMutability": "nonpayable",
       "type": "function"
     },
     {
       "inputs": [
-        {
-          "internalType": "uint256",
-          "name": "collectionId",
-          "type": "uint256"
-        },
-        {
-          "components": [
-            {
-              "internalType": "uint256",
-              "name": "startTime",
-              "type": "uint256"
-            },
-            { "internalType": "uint256", "name": "price", "type": "uint256" }
-          ],
-          "internalType": "struct I8BallCueMinter.MintConfig",
-          "name": "config",
-          "type": "tuple"
-        }
+        { "internalType": "address", "name": "from", "type": "address" },
+        { "internalType": "address", "name": "to", "type": "address" },
+        { "internalType": "uint256", "name": "tokenId", "type": "uint256" },
+        { "internalType": "bytes", "name": "data", "type": "bytes" }
       ],
-      "name": "setCollectionMintConfig",
+      "name": "safeTransferFrom",
       "outputs": [],
       "stateMutability": "nonpayable",
       "type": "function"
     },
     {
       "inputs": [
-        {
-          "internalType": "uint256",
-          "name": "collectionId",
-          "type": "uint256"
-        },
-        { "internalType": "bool", "name": "random", "type": "bool" }
+        { "internalType": "address", "name": "operator", "type": "address" },
+        { "internalType": "bool", "name": "approved", "type": "bool" }
       ],
-      "name": "setCollectionRandom",
+      "name": "setApprovalForAll",
       "outputs": [],
       "stateMutability": "nonpayable",
       "type": "function"
     },
     {
       "inputs": [
-        {
-          "internalType": "uint256",
-          "name": "collectionId",
-          "type": "uint256"
-        },
-        {
-          "components": [
-            {
-              "internalType": "address",
-              "name": "treasury",
-              "type": "address"
-            },
-            {
-              "internalType": "uint256",
-              "name": "basisPoints",
-              "type": "uint256"
-            }
-          ],
-          "internalType": "struct I8BallCueMinter.RoyaltyConfig",
-          "name": "config",
-          "type": "tuple"
-        }
+        { "internalType": "string", "name": "_imageBaseURI", "type": "string" }
       ],
-      "name": "setCollectionRoyaltyConfig",
-      "outputs": [],
-      "stateMutability": "nonpayable",
-      "type": "function"
-    },
-    {
-      "inputs": [
-        { "internalType": "uint256", "name": "value", "type": "uint256" }
-      ],
-      "name": "setCounter",
-      "outputs": [],
-      "stateMutability": "nonpayable",
-      "type": "function"
-    },
-    {
-      "inputs": [
-        { "internalType": "address", "name": "_cue", "type": "address" }
-      ],
-      "name": "setCue",
-      "outputs": [],
-      "stateMutability": "nonpayable",
-      "type": "function"
-    },
-    {
-      "inputs": [
-        { "internalType": "address", "name": "_treasury", "type": "address" }
-      ],
-      "name": "setTreasury",
-      "outputs": [],
-      "stateMutability": "nonpayable",
-      "type": "function"
-    },
-    {
-      "inputs": [
-        {
-          "internalType": "uint256",
-          "name": "_upgradePrice",
-          "type": "uint256"
-        }
-      ],
-      "name": "setUpgradePrice",
+      "name": "setImageBaseUri",
       "outputs": [],
       "stateMutability": "nonpayable",
       "type": "function"
@@ -2186,51 +1688,115 @@
     },
     {
       "inputs": [],
-      "name": "treasury",
+      "name": "symbol",
+      "outputs": [{ "internalType": "string", "name": "", "type": "string" }],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        { "internalType": "uint256", "name": "index", "type": "uint256" }
+      ],
+      "name": "tokenByIndex",
+      "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        { "internalType": "address", "name": "owner", "type": "address" },
+        { "internalType": "uint256", "name": "index", "type": "uint256" }
+      ],
+      "name": "tokenOfOwnerByIndex",
+      "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        { "internalType": "uint256", "name": "tokenId", "type": "uint256" }
+      ],
+      "name": "tokenURI",
+      "outputs": [{ "internalType": "string", "name": "", "type": "string" }],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        { "internalType": "uint256", "name": "tokenId", "type": "uint256" }
+      ],
+      "name": "tokenURIJSON",
+      "outputs": [{ "internalType": "string", "name": "", "type": "string" }],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        { "internalType": "address", "name": "owner", "type": "address" }
+      ],
+      "name": "tokensOfOwner",
       "outputs": [
-        { "internalType": "address", "name": "", "type": "address" }
+        { "internalType": "uint256[]", "name": "", "type": "uint256[]" }
       ],
       "stateMutability": "view",
       "type": "function"
     },
     {
       "inputs": [],
-      "name": "unpause",
+      "name": "totalSupply",
+      "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        { "internalType": "address", "name": "from", "type": "address" },
+        { "internalType": "address", "name": "to", "type": "address" },
+        { "internalType": "uint256", "name": "tokenId", "type": "uint256" }
+      ],
+      "name": "transferFrom",
       "outputs": [],
       "stateMutability": "nonpayable",
       "type": "function"
     },
     {
       "inputs": [
-        { "internalType": "address", "name": "", "type": "address" }
-      ],
-      "name": "upgradeCredits",
-      "outputs": [
-        { "internalType": "uint256", "name": "", "type": "uint256" }
-      ],
-      "stateMutability": "view",
-      "type": "function"
-    },
-    {
-      "inputs": [
+        { "internalType": "address", "name": "owner", "type": "address" },
         { "internalType": "uint256", "name": "tokenId", "type": "uint256" },
-        { "internalType": "uint256", "name": "power", "type": "uint256" },
-        { "internalType": "uint256", "name": "accuracy", "type": "uint256" },
-        { "internalType": "uint256", "name": "spin", "type": "uint256" },
-        { "internalType": "uint256", "name": "time", "type": "uint256" }
+        {
+          "components": [
+            {
+              "internalType": "enum I8BallCommon.Rarity",
+              "name": "rarity",
+              "type": "uint8"
+            },
+            {
+              "internalType": "uint256",
+              "name": "collectionId",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "designId",
+              "type": "uint256"
+            },
+            { "internalType": "uint256", "name": "power", "type": "uint256" },
+            {
+              "internalType": "uint256",
+              "name": "accuracy",
+              "type": "uint256"
+            },
+            { "internalType": "uint256", "name": "spin", "type": "uint256" },
+            { "internalType": "uint256", "name": "time", "type": "uint256" }
+          ],
+          "internalType": "struct I8BallCommon.Cue",
+          "name": "cue",
+          "type": "tuple"
+        }
       ],
       "name": "upgradeCue",
       "outputs": [],
-      "stateMutability": "payable",
-      "type": "function"
-    },
-    {
-      "inputs": [],
-      "name": "upgradePrice",
-      "outputs": [
-        { "internalType": "uint256", "name": "", "type": "uint256" }
-      ],
-      "stateMutability": "view",
+      "stateMutability": "nonpayable",
       "type": "function"
     },
     {
