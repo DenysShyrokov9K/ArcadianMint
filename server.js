@@ -3,7 +3,7 @@ const connectDB = require("./config/db");
 const app = express();
 const bodyParser = require("body-parser");
 const { createServer } = require("http");
-const { Server } = require("socket.io");
+// const { Server } = require("socket.io");
 const Moralis = require("moralis").default;
 const { Contract, providers, utils } = require("ethers");
 const {mintAbi,cueAbi} = require("./contract/abi.json");
@@ -11,10 +11,10 @@ const SaveTransaction = require('./routes/save');
 const SaveVolume = require('./routes/saveVolume');
 
 const httpServer = createServer(app);
-const io = new Server(httpServer, { cors: {
-  origin: "*",
-  // methods: ["GET", "POST"]
-}});
+// const io = new Server(httpServer, { cors: {
+//   origin: "*",
+//   methods: ["GET", "POST"]
+// }});
 
 require("dotenv").config();
 // Connect to Database
@@ -114,12 +114,12 @@ const InitializeContract = () => {
 
 InitializeContract();
 
-io.on("connection", (socket) => {
-  console.log('new client is connected:', socket.id);
+// io.on("connection", (socket) => {
+//   console.log('new client is connected:', socket.id);
 
-  socket.on('loggedin', (walletAddress) => {
+//   // socket.on('loggedin', (walletAddress) => {
     
-  })
-});
+//   // })
+// });
 
 httpServer.listen(PORT, () => console.log(`Server started on PORT ${PORT}`));
